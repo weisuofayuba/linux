@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: dep
+      run: sudo apt update && sudo apt install libelf-dev
     - name: configure
       run: make x86_64_defconfig
     - name: make
