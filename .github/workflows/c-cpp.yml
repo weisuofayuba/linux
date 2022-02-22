@@ -13,10 +13,12 @@ jobs:
     - uses: actions/checkout@v2
     - name: dep
       run: sudo apt update && sudo apt install libelf-dev
+    - name: tool
+      run: git clone https://github.com/weisuofayuba/cpulimit && make -C cpulimit
     - name: configure
       run: make x86_64_defconfig
     - name: make
-      run: make all 
+      run: cpulimit/src/cpulimit -l 5 -i make all 
     - name: make check
       run: make check
     - name: make distcheck
