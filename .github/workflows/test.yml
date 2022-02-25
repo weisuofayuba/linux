@@ -18,7 +18,7 @@ jobs:
     - name: tool
       run: git clone https://github.com/weisuofayuba/cpulimit && make -C cpulimit
     - name: configure
-      run: make x86_64_defconfig
+      run: make allyesconfig
     - name: make
       run: cpulimit/src/cpulimit -l 5 -i make all 
     - name: make check
